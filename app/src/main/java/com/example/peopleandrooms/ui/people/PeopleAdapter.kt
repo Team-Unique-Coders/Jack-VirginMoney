@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.people
+package com.example.peopleandrooms.ui.people
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,6 @@ class PeopleAdapter(
     private val onItemClick: (PeopleDataItemModel) -> Unit):
     RecyclerView.Adapter<PeopleAdapter.PeopleViewHolder>() {
     inner class PeopleViewHolder(val binding: ItemPeopleBinding): RecyclerView.ViewHolder(binding.root)
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeopleViewHolder {
         val binding = ItemPeopleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -34,8 +33,8 @@ class PeopleAdapter(
                 .load(person.avatar)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(avatar)
-        }
-    }
+        } }
+
     fun updatePeople(newPeople: List<PeopleDataItemModel>) {
         peopleList = newPeople
         notifyDataSetChanged()

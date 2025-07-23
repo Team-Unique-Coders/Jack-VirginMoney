@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.people
+package com.example.peopleandrooms.ui.people
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -42,16 +42,14 @@ class peopleFragment : Fragment() {
                         personError.visibility = View.GONE
                         peopleRecyclerView.visibility = View.GONE
                         progressBarPerson.visibility = View.VISIBLE
-                    }
-                }
+                    } }
 
                 is PersonApiResponse.Error -> {
                     binding.apply {
                         personError.visibility = View.VISIBLE
                         peopleRecyclerView.visibility = View.GONE
                         progressBarPerson.visibility = View.GONE
-                    }
-                }
+                    } }
 
                 is PersonApiResponse.Success -> {
                     binding.apply {
@@ -63,21 +61,15 @@ class peopleFragment : Fragment() {
                 }
 
                 else -> {}
-            }
-        }
-
-
-    }
+            } } }
 
     private fun setupRecyclerView() {
         personAdapter = PeopleAdapter(emptyList()) { personItem ->
-            Toast.makeText(context, "${personItem.createdAt}Click!", Toast.LENGTH_SHORT).show()
-        }
+            Toast.makeText(context, "${personItem.createdAt}Click!", Toast.LENGTH_SHORT).show() }
         binding.peopleRecyclerView.apply {
             adapter = personAdapter
             layoutManager = LinearLayoutManager(requireContext())
-        }
-    }
+        } }
 
     private fun setupUI(models: List<PeopleDataItemModel>) {
         personAdapter = PeopleAdapter(models) { item ->
@@ -85,8 +77,5 @@ class peopleFragment : Fragment() {
         }
         binding.peopleRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.peopleRecyclerView.adapter = personAdapter
-
     }
-
-
 }

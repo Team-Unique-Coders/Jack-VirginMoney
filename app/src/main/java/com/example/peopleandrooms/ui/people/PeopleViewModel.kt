@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.people
+package com.example.peopleandrooms.ui.people
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,10 +15,7 @@ class PeopleViewModel  @Inject constructor(val repository: Repository): ViewMode
     private val _personData = MutableLiveData<PersonApiResponse>()
     val personData: LiveData<PersonApiResponse> = _personData
 
-    init {
-        getPersons()
-
-    }
+    init { getPersons() }
 
     fun getPersons() {
         _personData.postValue(
@@ -26,17 +23,12 @@ class PeopleViewModel  @Inject constructor(val repository: Repository): ViewMode
         )
         viewModelScope.launch {
             try {
-
                 val personDetail = repository.getAllPeople()
                 _personData.postValue(PersonApiResponse.Success(personDetail))
-
             } catch (e: Exception) {
                 _personData.postValue(PersonApiResponse.Error("no response"))
-            }
-        }
-    }
+            } } }
 }
-
 
     sealed class PersonApiResponse {
         object Loading : PersonApiResponse()

@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.rooms
+package com.example.peopleandrooms.ui.rooms
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -45,16 +45,14 @@ class RoomFragment : Fragment() {
                         roomError.visibility = View.GONE
                         roomRecyclerView.visibility = View.GONE
                         progressBarRoom.visibility = View.VISIBLE
-                    }
-                }
+                    } }
 
                 is RoomsApiResponse.Error -> {
                     binding.apply {
                         roomError.visibility = View.VISIBLE
                         roomRecyclerView.visibility = View.GONE
                         progressBarRoom.visibility = View.GONE
-                    }
-                }
+                    } }
 
                 is RoomsApiResponse.Success -> {
                     binding.apply {
@@ -64,12 +62,7 @@ class RoomFragment : Fragment() {
                     }
                     setupUI(response.roomsModel)
                 }
-
-                else -> {}
-            }
-        }
-
-
+                else -> {} } }
     }
 
     private fun setupRecyclerView() {
@@ -79,8 +72,7 @@ class RoomFragment : Fragment() {
         binding.roomRecyclerView.apply {
             adapter = roomAdapter
             layoutManager = LinearLayoutManager(requireContext())
-        }
-    }
+        } }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -92,16 +84,13 @@ class RoomFragment : Fragment() {
         allRooms = models
         applyFilter(binding.showOccupiedSwitch.isChecked)
         binding.showOccupiedSwitch.setOnCheckedChangeListener{_, isChecked ->
-        applyFilter(isChecked)}
-
-    }
+        applyFilter(isChecked)
+        } }
 
     private fun applyFilter(showOnlyOccupied: Boolean) {
         val filterList = if (showOnlyOccupied) {
-            allRooms.filter { it.isOccupied }
-        } else {
-            allRooms
-        }
+            allRooms.filter { !it.isOccupied }
+        } else { allRooms }
         roomAdapter = RoomAdapter(filterList) { item ->
             Toast.makeText(context, "${item.maxOccupancy}", Toast.LENGTH_SHORT).show()
         }

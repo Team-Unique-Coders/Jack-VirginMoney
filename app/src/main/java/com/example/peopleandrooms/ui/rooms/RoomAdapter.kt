@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.rooms
+package com.example.peopleandrooms.ui.rooms
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,14 +15,11 @@ class RoomAdapter(
     RecyclerView.Adapter<RoomAdapter.RoomViewHolder>() {
 
         class RoomViewHolder(val view: View): RecyclerView.ViewHolder(view){
-            val binding = ItemRoomBinding.bind(view)
-        }
+            val binding = ItemRoomBinding.bind(view) }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_room,parent,false)
-        return RoomViewHolder(itemView)
-
-    }
+        return RoomViewHolder(itemView) }
 
     override fun getItemCount(): Int =roomsList.size
 
@@ -34,7 +31,5 @@ class RoomAdapter(
             isOccupied.text = if (room.isOccupied) "Occupied" else "Available"
             createdTime.text = "Created time: ${room.createdAt}"
             roomId.text = "Room id: ${room.id}"
-        }
-
-    }
+        } }
 }

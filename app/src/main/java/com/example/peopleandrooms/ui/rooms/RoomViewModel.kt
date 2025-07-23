@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.rooms
+package com.example.peopleandrooms.ui.rooms
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,24 +15,20 @@ class RoomViewModel @Inject constructor(val repository: Repository): ViewModel()
     private val _roomData = MutableLiveData<RoomsApiResponse>()
     val roomData : LiveData<RoomsApiResponse> = _roomData
 
-    init {
-        getRooms()
+    init { getRooms() }
 
-    }
     fun getRooms(){
         _roomData.postValue(
-            RoomsApiResponse.Loading)
+            RoomsApiResponse.Loading
+        )
         viewModelScope.launch {
             try{
 
                 val roomsDetail = repository.getAllRooms()
                 _roomData.postValue(RoomsApiResponse.Success(roomsDetail))
-
             } catch (e:Exception){
                 _roomData.postValue(RoomsApiResponse.Error("no response"))
-            }
-        }
-
+            } }
     }
 }
 

@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/peopleFragment"
-        android:name="com.example.peopleandrooms.people.peopleFragment"
+        android:name="com.example.peopleandrooms.ui.people.peopleFragment"
         android:label="fragment_people"
         tools:layout="@layout/fragment_people" />
     <fragment
         android:id="@+id/roomFragment"
-        android:name="com.example.peopleandrooms.rooms.RoomFragment"
+        android:name="com.example.peopleandrooms.ui.rooms.RoomFragment"
         android:label="fragment_room"
         tools:layout="@layout/fragment_room" />
 </navigation>
