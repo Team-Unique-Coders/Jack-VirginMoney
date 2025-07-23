@@ -3,14 +3,9 @@ package com.example.peopleandrooms.rooms
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.peopleandrooms.R
-import com.example.peopleandrooms.data.ApiDetails
-import com.example.peopleandrooms.data.RoomDataItemModel
-import com.example.peopleandrooms.databinding.ItemPeopleBinding
+import com.example.peopleandrooms.data.roomdata.RoomDataItemModel
 import com.example.peopleandrooms.databinding.ItemRoomBinding
 
 

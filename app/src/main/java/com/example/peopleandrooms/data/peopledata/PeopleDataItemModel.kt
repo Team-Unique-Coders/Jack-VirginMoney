@@ -1,6 +1,7 @@
-package com.example.peopleandrooms.data
+package com.example.peopleandrooms.data.peopledata
 
 
+import com.example.peopleandrooms.data.DataModel
 import com.google.gson.annotations.SerializedName
 
 data class PeopleDataItemModel(

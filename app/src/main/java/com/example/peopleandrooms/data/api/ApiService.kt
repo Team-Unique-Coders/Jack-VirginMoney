@@ -1,5 +1,7 @@
-package com.example.peopleandrooms.data
+package com.example.peopleandrooms.data.api
 
+import com.example.peopleandrooms.data.peopledata.PeopleDataItemModel
+import com.example.peopleandrooms.data.roomdata.RoomDataItemModel
 import retrofit2.http.GET
 
 interface ApiService {

@@ -1,10 +1,10 @@
 package com.example.peopleandrooms.di
 
 import android.app.Application
-import com.example.peopleandrooms.data.ApiDetails
-import com.example.peopleandrooms.data.ApiService
-import com.example.peopleandrooms.data.Repository
-import com.example.peopleandrooms.data.RepositoryImpl
+import com.example.peopleandrooms.data.api.ApiDetails
+import com.example.peopleandrooms.data.api.ApiService
+import com.example.peopleandrooms.data.repo.Repository
+import com.example.peopleandrooms.data.repo.RepositoryImpl
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -15,8 +15,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Qualifier
-
 
 
 @Module
@@ -54,7 +52,7 @@ class AppDependency : Application() {
     }
 
     @Provides
-    fun provideRoomService( retrofit: Retrofit): ApiService{
+    fun provideRoomService( retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
 

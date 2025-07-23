@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.peopleandrooms.data.Repository
-import com.example.peopleandrooms.data.RoomDataItemModel
+import com.example.peopleandrooms.data.repo.Repository
+import com.example.peopleandrooms.data.roomdata.RoomDataItemModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.peopleandrooms.data
+package com.example.peopleandrooms.data.api
 
 object ApiDetails {
     //end points
