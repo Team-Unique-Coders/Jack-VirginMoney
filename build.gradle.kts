@@ -12,5 +12,7 @@ plugins {
 
     
     id("com.google.dagger.hilt.android") version "2.56.2" apply false
+    alias(libs.plugins.google.gms.google.services) apply false
+    alias(libs.plugins.google.firebase.crashlytics) apply false
 
 }

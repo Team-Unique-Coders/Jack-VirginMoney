@@ -86,11 +86,14 @@ class RoomFragment : Fragment() {
         binding.showOccupiedSwitch.setOnCheckedChangeListener{_, isChecked ->
         applyFilter(isChecked)
         } }
-
+//put a search function by this
+    //search by ID
     private fun applyFilter(showOnlyOccupied: Boolean) {
         val filterList = if (showOnlyOccupied) {
             allRooms.filter { !it.isOccupied }
-        } else { allRooms }
+        } else {
+            allRooms.filter { it.isOccupied }
+        }
         roomAdapter = RoomAdapter(filterList) { item ->
             Toast.makeText(context, "${item.maxOccupancy}", Toast.LENGTH_SHORT).show()
         }

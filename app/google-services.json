@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "547317623346",
+    "project_id": "peopleandrooms",
+    "storage_bucket": "peopleandrooms.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547317623346:android:60dc900c96e19ed1ca6a2b",
+        "android_client_info": {
+          "package_name": "com.example.peopleandrooms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhXG2x7CKSDmqz27aAxit5uORIKkitUSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
