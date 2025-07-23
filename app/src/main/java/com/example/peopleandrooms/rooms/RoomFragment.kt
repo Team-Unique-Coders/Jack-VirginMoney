@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class RoomFragment : Fragment() {
+    //for toggle
+    private var allRooms: List<RoomDataItemModel> = emptyList()
     private var _binding: FragmentRoomBinding? = null
     private val binding get() = _binding!!
     private val viewModel: RoomViewModel by viewModels()
@@ -90,12 +93,23 @@ class RoomFragment : Fragment() {
 
 
     private fun setupUI(models: List<RoomDataItemModel>) {
-        roomAdapter = RoomAdapter(models) { item ->
-            Toast.makeText(context, "${item.maxOccupancy} Clicked!", Toast.LENGTH_SHORT).show()
-        }
-        binding.roomRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.roomRecyclerView.adapter = roomAdapter
+        allRooms = models
+        applyFilter(binding.showOccupiedSwitch.isChecked)
+        binding.showOccupiedSwitch.setOnCheckedChangeListener{_, isChecked ->
+        applyFilter(isChecked)}
 
+    }
+
+    private fun applyFilter(showOnlyOccupied: Boolean) {
+        val filterList = if (showOnlyOccupied) {
+            allRooms.filter { it.isOccupied }
+        } else {
+            allRooms
+        }
+        roomAdapter = RoomAdapter(filterList) { item ->
+            Toast.makeText(context, "${item.maxOccupancy}", Toast.LENGTH_SHORT).show()
+        }
+        binding.roomRecyclerView.adapter = roomAdapter
     }
 }
 
