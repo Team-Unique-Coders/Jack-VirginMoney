@@ -7,6 +7,9 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.google.firebase.crashlytics)
 
+    //safeargs userfragment
+    alias(libs.plugins.androidx.navigation.safe.args.kotlin)
+
 }
 
 

@@ -8,9 +8,13 @@
 
     <fragment
         android:id="@+id/peopleFragment"
-        android:name="com.example.peopleandrooms.ui.people.peopleFragment"
+        android:name="com.example.peopleandrooms.ui.people.PeopleFragment"
         android:label="fragment_people"
-        tools:layout="@layout/fragment_people" />
+        tools:layout="@layout/fragment_people" >
+        <action
+            android:id="@+id/action_peopleFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
     <fragment
         android:id="@+id/roomFragment"
         android:name="com.example.peopleandrooms.ui.rooms.RoomFragment"
@@ -37,4 +41,15 @@
             android:id="@+id/action_createUserFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.peopleandrooms.ui.user.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <argument
+            android:name="firstName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

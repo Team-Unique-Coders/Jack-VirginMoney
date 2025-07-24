@@ -61,6 +61,7 @@ class LoginFragment : Fragment() {
                             if (task.isSuccessful) {
                                 val user = auth.currentUser
                                 Toast.makeText(context, "${user?.email} I welcome you!", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.peopleFragment)
                             } else {
                                 Toast.makeText(context, "Nope! not allowed. . .", Toast.LENGTH_SHORT).show()
                             }

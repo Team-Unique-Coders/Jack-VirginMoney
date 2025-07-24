@@ -1,6 +1,7 @@
 package com.example.peopleandrooms
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -29,5 +30,13 @@ class MainActivity : AppCompatActivity() {
                     true }
                 R.id.room_menu -> {
                     navController.navigate(R.id.roomFragment)
-                    true } else -> false } } }
+                    true } else -> false } }
+        //changing visibility of the bottomNav
+        navController.addOnDestinationChangedListener{_, destination, _ ->
+            when (destination.id){
+                R.id.peopleFragment, R.id.roomFragment -> binding.bottomNav.visibility = View.VISIBLE
+                else -> binding.bottomNav.visibility = View.GONE
+            } } }
+
+
 }

@@ -81,6 +81,5 @@ ksp = { id ="com.google.devtools.ksp", version.ref = "ksp"}
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
 
-
-
+androidx-navigation-safe-args-kotlin = { id = "androidx.navigation.safeargs.kotlin", version = "2.7.5" }
 

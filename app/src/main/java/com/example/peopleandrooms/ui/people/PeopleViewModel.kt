@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.peopleandrooms.data.api.ApiDetails
+import com.example.peopleandrooms.data.peopledata.PeopleData
 import com.example.peopleandrooms.data.peopledata.PeopleDataItemModel
 import com.example.peopleandrooms.data.repo.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,9 +24,10 @@ class PeopleViewModel  @Inject constructor(val repository: Repository): ViewMode
             PersonApiResponse.Loading
         )
         viewModelScope.launch {
+            val attempt: PeopleData = repository.getAllPeople()
             try {
                 val personDetail = repository.getAllPeople()
-                _personData.postValue(PersonApiResponse.Success(personDetail))
+                _personData.postValue(PersonApiResponse.Success(attempt))
             } catch (e: Exception) {
                 _personData.postValue(PersonApiResponse.Error("no response"))
             } } }
@@ -32,7 +35,7 @@ class PeopleViewModel  @Inject constructor(val repository: Repository): ViewMode
 
     sealed class PersonApiResponse {
         object Loading : PersonApiResponse()
-        data class Success(val personSuccess: List<PeopleDataItemModel>) : PersonApiResponse()
+        data class Success(val personSuccess: PeopleData) : PersonApiResponse()
         data class Error(val personError: String) : PersonApiResponse()
     }
 

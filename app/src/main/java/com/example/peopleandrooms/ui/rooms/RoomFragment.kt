@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peopleandrooms.data.roomdata.RoomDataItemModel
 import com.example.peopleandrooms.databinding.FragmentRoomBinding
@@ -69,8 +71,11 @@ class RoomFragment : Fragment() {
         roomAdapter = RoomAdapter(emptyList()) { roomItem ->
             Toast.makeText(context, "${roomItem.createdAt}Click!", Toast.LENGTH_SHORT).show()
         }
+        //right here to change grid layout
         binding.roomRecyclerView.apply {
             adapter = roomAdapter
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            //was
             layoutManager = LinearLayoutManager(requireContext())
         } }
 
