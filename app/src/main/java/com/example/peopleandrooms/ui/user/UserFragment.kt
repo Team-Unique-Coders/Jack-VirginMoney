@@ -25,9 +25,9 @@ class UserFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentUserBinding.inflate(inflater, container, false)
-        binding.revert.setOnClickListener {
+/*        binding.revert.setOnClickListener {
             findNavController().navigate(R.id.peopleFragment)
-        }
+        }*/
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,19 +36,20 @@ class UserFragment : Fragment() {
         viewUser(firstName)
     }
 
-    private fun viewUser(userId: String) {
-        Toast.makeText(context, userId, Toast.LENGTH_SHORT).show()
+    private fun viewUser(userIds: String) {
+        Toast.makeText(context, userIds, Toast.LENGTH_SHORT).show()
 
         lifecycleScope.launch {
             try {
-                val users = viewModel.getUser(userId)
+                val users = viewModel.getUser(userIds)
                 val user = users.firstOrNull()
                 if (user != null) {
                     Toast.makeText(
                         context,
-                        "I am here $userId ${user.firstName}",
+                        "I am here $userIds ${user.firstName}",
                         Toast.LENGTH_SHORT
                     ).show()
+                    binding.userId.text = user.id
                     binding.fullName.text = user.name
                     binding.email.text = user.email
                     binding.jobTitle.text = user.jobtitle

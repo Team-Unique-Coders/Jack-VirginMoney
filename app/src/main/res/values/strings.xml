@@ -2,4 +2,5 @@
     <string name="app_name">PeopleAndRooms</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">547317623346-2b02cqo5mf1jha0mvqs5592mhb2cn3n0.apps.googleus</string>
 </resources>
